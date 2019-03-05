@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+	
+	# Redirect non-www urls to www
+	#RewriteCond %{HTTP_HOST} ^bisapilih\.com [NC]
+	#RewriteRule (.*) http://www.bisapilih.com/$1 [R=301,L]
+	RewriteCond $1 !^(index\.php|(.*)\.swf|themes|img|images|css|jquery|js|robots\.txt|favicon\.ico)
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule .* index.php/$0 [PT,L]
+</IfModule>
