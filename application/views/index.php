@@ -337,7 +337,7 @@ header("Access-Control-Allow-Origin: *");
         
         <li><a href="?page=reservation"><i class="fa fa-book"></i> <span>Reservation</span></a></li>
        
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-edit"></i> <span>Form Pengujian</span>
             <span class="pull-right-container">
@@ -345,9 +345,9 @@ header("Access-Control-Allow-Origin: *");
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="?page=dimensi"><i class="fa fa-circle-o"></i>Pengujian Dimensi & Sudut Kain</a></li>
+            <li><a href="?page=dimensi"><i class="fa fa-circle-o"></i>Pengujian Dimensi & Sudut</a></li>
             <li><a href="?page=tetal"><i class="fa fa-circle-o"></i>Pengujian Tetal & Anyaman</a></li>
-            <li><a href="?page=benang"><i class="fa fa-circle-o"></i>Pengujian Nomor Benang Kain</a></li>
+            <li><a href="?page=benang"><i class="fa fa-circle-o"></i>Pengujian Nomor Benang</a></li>
             <li><a href="?page=tarik"><i class="fa fa-circle-o"></i>Pengujian Kekuatan Tarik</a></li>
             <li><a href="?page=sobek"><i class="fa fa-circle-o"></i>Pengujian Kekuatan Sobek</a></li>
             <li><a href="?page=udara"><i class="fa fa-circle-o"></i>Pengujian Daya Tembus Udara</a></li>
@@ -388,10 +388,12 @@ header("Access-Control-Allow-Origin: *");
 	  		}else{
 	  			$this->load->view('pages/forms/dimensi.php');
 	  		}
-	  		
 	  	}else if($_GET['page'] == 'tetal'){
-	  		$this->load->view('pages/forms/tetal.php');
-	  		
+	  		if(isset($_GET['action'])){
+	  			$this->load->view('pages/forms/tetal_follow_up.php');
+	  		}else{
+	  			$this->load->view('pages/forms/tetal.php');
+	  		}
 	  	}else if($_GET['page'] == 'benang'){
 	  		$this->load->view('pages/forms/benang.php');
 	  		

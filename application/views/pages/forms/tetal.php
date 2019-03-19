@@ -2,7 +2,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Form Pengujian Dimensi & Sudut
+		Form Pengujian Tetal & Anyaman Kain
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
