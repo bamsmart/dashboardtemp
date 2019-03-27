@@ -1,4 +1,3 @@
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
@@ -30,7 +29,7 @@
 				</div>
 			</div> -->
 		<!-- /.box-header -->
-		<form>
+		<form method="post" id="form-dimension">
 			<div class="box-body">
 
 				<!-- title row -->
@@ -39,6 +38,7 @@
 						<h2 class="page-header">
 							<i></i>NO. WO: 183<small class="pull-right">Date: 10/03/2019</small>
 						</h2>
+						<input type="hidden" name="wo_no" value="WO/2019/02/0001">
 					</div>
 				</div>
 				<div class="row">
@@ -64,33 +64,33 @@
 							<tr>
 								<th width="200px"><div class="box-header"
 										style="margin-bottom: 0px; margin-top: 0px;">Lebar (m)</div></th>
-								<th><input type="text" class="form-control" placeholder="l(1)"></th>
-								<th><input type="text" class="form-control" placeholder="l(2)"></th>
-								<th><input type="text" class="form-control" placeholder="l(3)"></th>
-								<th><input type="text" class="form-control" placeholder="l(4)"></th>
-								<th><input type="text" class="form-control" placeholder="l(5)"></th>
+								<th><input type="number" class="form-control" placeholder="l(1)" name="dm_width_1"></th>
+								<th><input type="number" class="form-control" placeholder="l(2)" name="dm_width_2"></th>
+								<th><input type="number" class="form-control" placeholder="l(3)" name="dm_width_3"></th>
+								<th><input type="number" class="form-control" placeholder="l(4)" name="dm_width_4"></th>
+								<th><input type="number" class="form-control" placeholder="l(5)" name="dm_width_5"></th>
 								<th><input type="text" class="form-control"
 									placeholder="x&#x0304" disabled></th>
 							</tr>
 							<tr>
 								<th width="200px"><div class="box-header"
 										style="margin-bottom: 0px; margin-top: 0px;">Panjang (m)</div></th>
-								<th><input type="text" class="form-control" placeholder="p(1)"></th>
-								<th><input type="text" class="form-control" placeholder="p(2)"></th>
-								<th><input type="text" class="form-control" placeholder="p(3)"></th>
-								<th><input type="text" class="form-control" placeholder="p(4)"></th>
-								<th><input type="text" class="form-control" placeholder="p(5)"></th>
+								<th><input type="number" class="form-control" placeholder="p(1)" name="dm_height_1"></th>
+								<th><input type="number" class="form-control" placeholder="p(2)" name="dm_height_2"></th>
+								<th><input type="number" class="form-control" placeholder="p(3)" name="dm_height_3"></th>
+								<th><input type="number" class="form-control" placeholder="p(4)" name="dm_height_4"></th>
+								<th><input type="number" class="form-control" placeholder="p(5)" name="dm_height_5"></th>
 								<th><input type="text" class="form-control"
 									placeholder="x&#x0304" disabled></th>
 							</tr>
 							<tr>
 								<th width="200px"><div class="box-header"
 										style="margin-bottom: 0px; margin-top: 0px;">Tebal (mm)</div></th>
-								<th><input type="text" class="form-control" placeholder="tb(1)"></th>
-								<th><input type="text" class="form-control" placeholder="tb(2)"></th>
-								<th><input type="text" class="form-control" placeholder="tb(3)"></th>
-								<th><input type="text" class="form-control" placeholder="tb(4)"></th>
-								<th><input type="text" class="form-control" placeholder="tb(5)"></th>
+								<th><input type="number" class="form-control" placeholder="tb(1)" name="dm_thick_1"></th>
+								<th><input type="number" class="form-control" placeholder="tb(2)" name="dm_thick_2"></th>
+								<th><input type="number" class="form-control" placeholder="tb(3)" name="dm_thick_3"></th>
+								<th><input type="number" class="form-control" placeholder="tb(4)" name="dm_thick_4"></th>
+								<th><input type="number" class="form-control" placeholder="tb(5)" name="dm_thick_5"></th>
 								<th><input type="text" class="form-control"
 									placeholder="x&#x0304" disabled></th>
 							</tr>
@@ -99,11 +99,11 @@
 										style="margin-bottom: 0px; margin-top: 0px;">
 										Berat 100 cm<sup>2</sup> (g)
 									</div></th>
-								<th><input type="text" class="form-control" placeholder="b(1)"></th>
-								<th><input type="text" class="form-control" placeholder="b(2)"></th>
-								<th><input type="text" class="form-control" placeholder="b(3)"></th>
-								<th><input type="text" class="form-control" placeholder="b(4)"></th>
-								<th><input type="text" class="form-control" placeholder="b(5)"></th>
+								<th><input type="number" class="form-control" placeholder="b(1)" name="dm_weight_1"></th>
+								<th><input type="number" class="form-control" placeholder="b(2)" name="dm_weight_2"></th>
+								<th><input type="number" class="form-control" placeholder="b(3)" name="dm_weight_3"></th>
+								<th><input type="number" class="form-control" placeholder="b(4)" name="dm_weight_4"></th>
+								<th><input type="number" class="form-control" placeholder="b(5)" name="dm_weight_5"></th>
 								<th><input type="text" class="form-control"
 									placeholder="x&#x0304" disabled></th>
 							</tr>
@@ -140,29 +140,29 @@
 							<tr>
 								<th width="20px" rowspan="2"><div class="box-header">Lusi</div></th>
 								<th width="120px"><div class="box-header">Antar Muka</div></th>
-								<th><input type="text" class="form-control" placeholder="l-am-(1)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-am-(2)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-am-(3)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-am-(4)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-am-(5)"></th>
+								<th><input type="number" class="form-control" placeholder="l-am-(1)" name="ks_l_interface_1"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-am-(2)" name="ks_l_interface_2"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-am-(3)" name="ks_l_interface_3"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-am-(4)" name="ks_l_interface_4"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-am-(5)" name="ks_l_interface_5"></th>
 								<th><input type="text" class="form-control" placeholder="x&#x0304"
 									disabled></th>
 							</tr>
 							<tr>
 								<th width="120px"><div class="box-header">Antar Belakang</div></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-ab-(1)"></th>
-								<th><input type="text" class="form-control" placeholder="l-ab-(2)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-ab-(3)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-ab-(4)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="l-ab-(5)"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-ab-(1)" name="ks_l_back_1"></th>
+								<th><input type="number" class="form-control" placeholder="l-ab-(2)" name="ks_l_back_2"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-ab-(3)" name="ks_l_back_3"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-ab-(4)" name="ks_l_back_4"></th>
+								<th><input type="number" class="form-control"
+									placeholder="l-ab-(5)" name="ks_l_back_5"></th>
 								<th><input type="text" class="form-control" placeholder="x&#x0304"
 									disabled></th>
 							</tr>
@@ -170,29 +170,29 @@
 							<tr>
 								<th width="20px" rowspan="2"><div class="box-header">Pakan</div></th>
 								<th width="120px"><div class="box-header">Antar Muka</div></th>
-								<th><input type="text" class="form-control" placeholder="p-am-(1)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-am-(2)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-am-(3)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-am-(4)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-am-(5)"></th>
+								<th><input type="number" class="form-control" placeholder="p-am-(1)" name="ks_p_interface_1"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-am-(2)" name="ks_p_interface_2"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-am-(3)" name="ks_p_interface_3"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-am-(4)" name="ks_p_interface_4"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-am-(5)" name="ks_p_interface_5"></th>
 								<th><input type="text" class="form-control" placeholder="x&#x0304"
 									disabled></th>
 							</tr>
 							<tr>
 								<th width="120px"><div class="box-header">Antar Belakang</div></th>
-								<th><input type="text" class="form-control" placeholder="p-ab-(1)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-ab-(2)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-ab-(3)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-ab-(4)"></th>
-								<th><input type="text" class="form-control"
-									placeholder="p-ab-(5)"></th>
+								<th><input type="number" class="form-control" placeholder="p-ab-(1)" name="ks_p_back_1"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-ab-(2)" name="ks_p_back_2"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-ab-(3)" name="ks_p_back_3"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-ab-(4)" name="ks_p_back_4"></th>
+								<th><input type="number" class="form-control"
+									placeholder="p-ab-(5)" name="ks_p_back_5"></th>
 								<th><input type="text" class="form-control" placeholder="x&#x0304"
 									disabled></th>
 							</tr>
@@ -205,14 +205,46 @@
 			<!-- /.box-body -->
 
 			<div class="box-footer">
-				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<button type="button" class="btn btn-primary pull-right" id="submitdimension">Submit</button>
 			</div>
 		</form>
-		<!-- <div class="box-footer">
-				Visit <a href="https://select2.github.io/">Select2 documentation</a>
-				for more examples and information about the plugin.
-			</div> -->
 	</div>
-	<!-- /.box -->
 </section>
 <!-- /.content -->
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('#submitdimension').on('click', function() {
+		//$("#submitdimension").attr("disabled", "disabled");
+		
+		$.busyLoadSetup({ animation: "slide", background: "rgba(255, 152, 0, 0.86)" });
+		$("#box-reservation").busyLoad("show");
+		
+			$.ajax({
+				url: "dimensi/submitData",
+				type: "POST",
+				dataType: 'json',
+				data: $('#form-dimension').serialize(),
+				cache: false,
+				 timeout: 5000,
+				success: function(dataResult){
+					/* var dataResult = JSON.parse(dataResult);
+					if(dataResult.statusCode==200){ */
+						$("#box-reservation").busyLoad("hide");
+						
+						$("#submitdimension").removeAttr("disabled");
+						$('#fupForm').find('input:text').val('');
+						
+						//$('#success').html('Data added successfully !'); 						
+					/* }
+					else if(dataResult.statusCode==201){
+					   alert("Error occured !");
+					} */
+				},
+				fail: function(xhr, textStatus, errorThrown){
+				       alert('request failed');
+				       $("#box-reservation").busyLoad("hide");
+				    }
+			});
+	});
+});
+</script>
