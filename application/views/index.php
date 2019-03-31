@@ -9,10 +9,8 @@ header ( "Access-Control-Allow-Origin: *" );
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="utf-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
-<meta content="width=device-width, initial-scale=1" name="viewport">
 <meta content="{{ csrf_token() }}" name="csrf-token">
-<!--  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> -->
-
+<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 <title>Aplikasi Uji Fisika | Dashboard</title>
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet"
@@ -23,12 +21,12 @@ header ( "Access-Control-Allow-Origin: *" );
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="themes/default/bower_components/Ionicons/css/ionicons.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.2.1.min.js"
+	type="text/javascript"></script>
+<script src="themes/default/bower_components/jquery/dist/jquery.min.js"
+	type="text/javascript"></script>
 <link rel="stylesheet"
 	href="themes/default/bower_components/select2/dist/css/select2.min.css">
-
 <!-- Theme style -->
 <link rel="stylesheet" href="themes/default/dist/css/AdminLTE.min.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -50,10 +48,14 @@ header ( "Access-Control-Allow-Origin: *" );
 <!-- bootstrap wysihtml5 - text editor -->
 <link rel="stylesheet"
 	href="themes/default/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+	
 <!-- DataTables -->
 <link rel="stylesheet"
 	href="themes/default/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+<link
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+	rel="stylesheet">
+	
 <!-- Google Font -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
 <link rel="stylesheet" href="themes/default/dist/js/load.min.css">
@@ -61,8 +63,6 @@ header ( "Access-Control-Allow-Origin: *" );
 <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css"
 	rel="stylesheet">
-
-
 
 <!-- jQuery 3 -->
 <!-- <script src="themes/default/bower_components/jquery/dist/jquery.min.js"></script> -->
@@ -118,11 +118,21 @@ header ( "Access-Control-Allow-Origin: *" );
 	src="themes/default/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="themes/default/bower_components/fastclick/lib/fastclick.js"></script>
+
+
 <!-- DataTables -->
 <script
-	src="themes/default/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	src="themes/default/bower_components/datatables.net/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script
-	src="themes/default/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+	src="themes/default/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+	
+<!-- Bootstrap Validator -->
+<!-- <link href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.css" rel="stylesheet">
+<link href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.min.css" rel="stylesheet">
+<script
+	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.js" type="text/javascript"></script>
+<script
+	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.min.js" type="text/javascript"></script>	 -->
 
 <!-- AdminLTE App -->
 <script src="themes/default/dist/js/adminlte.min.js"></script>
@@ -464,10 +474,10 @@ header ( "Access-Control-Allow-Origin: *" );
 						$this->load->view ( 'pages/forms/benang.php' );
 					} else if ($_GET ['page'] == 'tarik') {
 						$this->load->view ( 'pages/forms/tarik.php' );
-					}else if($_GET ['page'] == 'rpt_dimensi'){
-						$this->load->view ( 'pages/reports/dimensi.php' );
-					}else if($_GET ['page'] == 'rpt_tetal'){
-						$this->load->view ( 'pages/reports/tetal.php' );
+					} else if ($_GET ['page'] == 'rpt_dimensi') {
+						$this->load->view ( 'pages/reports/rpt-dimensi.php' );
+					} else if ($_GET ['page'] == 'rpt_tetal') {
+						$this->load->view ( 'pages/reports/rpt-tetal.php' );
 					}
 				}
 				?>

@@ -3,7 +3,7 @@ header ( 'Access-Control-Allow-Origin: *' );
 
 if (! defined ( 'BASEPATH' ))
 	exit ( 'No direct script access allowed' );
-class Dimensi extends CI_Controller {
+class Tetal extends CI_Controller {
 	/*
 	 * ======================================================
 	 * Copyright © 2019
@@ -19,14 +19,14 @@ class Dimensi extends CI_Controller {
 	 */
 	public function __construct() {
 		parent::__construct ();
-		$this->load->model ( 'M_dimensi' );
+		$this->load->model ( 'M_tetal' );
 		
 		$this->load->library ( array (
 				'form_validation',
 				'session' 
 		) );
 	}
-	public function submitDimensionData() {
+	public function submitTetalData() {
 		$mysqltime = date ( "Y-m-d H:i:s" );
 		
 		$this->db->trans_begin ();
@@ -34,30 +34,22 @@ class Dimensi extends CI_Controller {
 		// =============================================
 		$strCond = "wo_no = '" . $_POST ['wo_no'] . "' ";
 		// =============================================
-		$data ['dm_width_1'] = $_POST ['dm_width_1'];
-		$data ['dm_width_2'] = $_POST ['dm_width_2'];
-		$data ['dm_width_3'] = $_POST ['dm_width_3'];
-		$data ['dm_width_4'] = $_POST ['dm_width_4'];
-		$data ['dm_width_5'] = $_POST ['dm_width_5'];
-		$data ['dm_height_1'] = $_POST ['dm_height_1'];
-		$data ['dm_height_2'] = $_POST ['dm_height_2'];
-		$data ['dm_height_3'] = $_POST ['dm_height_3'];
-		$data ['dm_height_4'] = $_POST ['dm_height_4'];
-		$data ['dm_height_5'] = $_POST ['dm_height_5'];
-		$data ['dm_thick_1'] = $_POST ['dm_thick_1'];
-		$data ['dm_thick_2'] = $_POST ['dm_thick_2'];
-		$data ['dm_thick_3'] = $_POST ['dm_thick_3'];
-		$data ['dm_thick_4'] = $_POST ['dm_thick_4'];
-		$data ['dm_thick_5'] = $_POST ['dm_thick_5'];
-		$data ['dm_weight_1'] = $_POST ['dm_weight_1'];
-		$data ['dm_weight_2'] = $_POST ['dm_weight_2'];
-		$data ['dm_weight_3'] = $_POST ['dm_weight_3'];
-		$data ['dm_weight_4'] = $_POST ['dm_weight_4'];
-		$data ['dm_weight_5'] = $_POST ['dm_weight_5'];
+		$data ['tl_ls_1'] = $_POST ['tl_ls_1'];
+		$data ['tl_ls_2'] = $_POST ['tl_ls_2'];
+		$data ['tl_ls_3'] = $_POST ['tl_ls_3'];
+		$data ['tl_ls_4'] = $_POST ['tl_ls_4'];
+		$data ['tl_ls_5'] = $_POST ['tl_ls_5'];
+		$data ['tl_pk_1'] = $_POST ['tl_pk_1'];
+		$data ['tl_pk_2'] = $_POST ['tl_pk_2'];
+		$data ['tl_pk_3'] = $_POST ['tl_pk_3'];
+		$data ['tl_pk_4'] = $_POST ['tl_pk_4'];
+		$data ['tl_pk_5'] = $_POST ['tl_pk_5'];
+		$data ['ay_mk_1'] = $_POST ['ay_mk_1'];
+		$data ['ay_mk_2'] = $_POST ['ay_mk_2'];
 		$data ['modified_by'] = "SYS";
 		$data ['modified_time'] = $mysqltime;
 		// =============================================
-		$this->M_dimensi->updateDimension ( $strCond, $data );
+		$this->M_tetal->updateTetal ( $strCond, $data );
 		// =============================================
 		if ($this->db->trans_status () === FALSE) {
 			$json = array (
@@ -76,7 +68,7 @@ class Dimensi extends CI_Controller {
 		echo json_encode ( $json );
 	}
 	
-	public function submitSudutData() {
+	public function submitAnyamanData() {
 		$mysqltime = date ( "Y-m-d H:i:s" );
 	
 		$this->db->trans_begin ();
@@ -107,7 +99,7 @@ class Dimensi extends CI_Controller {
 		$data ['modified_by'] = "SYS";
 		$data ['modified_time'] = $mysqltime;
 		// =============================================
-		$this->M_dimensi->updateDimension ( $strCond, $data );
+		$this->M_tetal->updateDimension ( $strCond, $data );
 		// =============================================
 		if ($this->db->trans_status () === FALSE) {
 			$json = array (
@@ -146,13 +138,13 @@ class Dimensi extends CI_Controller {
 			$strCond .= " AND " . $_POST ['setCondition'];
 		}
 		
-		$total = $this->M_dimensi->getDataCount( $strCond );
+		$total = $this->M_tetal->getDataCount( $strCond );
 		
 		if ($limitPage == 0) {
 			$limitPage = $total;
 		}
 		
-		$list_data = $this->M_dimensi->getQueryData( $strSelect, $strCond, $startPage, $limitPage )->result ();
+		$list_data = $this->M_tetal->getQueryData( $strSelect, $strCond, $startPage, $limitPage )->result ();
 		
 		$numr = 1;
 		foreach ( $list_data as $row ) {
@@ -185,7 +177,7 @@ class Dimensi extends CI_Controller {
 	}
 	
 	public function listDetailData() {
-	$strSelect = 'wo_no,test_type,dm_width_1,dm_width_2,dm_width_3,dm_width_4,dm_width_5,dm_height_1,dm_height_2,dm_height_3,dm_height_4,dm_height_5,dm_thick_1,dm_thick_2,dm_thick_3,dm_thick_4,dm_thick_5,dm_weight_1,dm_weight_2,dm_weight_3,dm_weight_4,dm_weight_5,ks_l_interface_1,ks_l_interface_2,ks_l_interface_3,ks_l_interface_4,ks_l_interface_5,ks_l_back_1,ks_l_back_2,ks_l_back_3,ks_l_back_4,ks_l_back_5,ks_p_interface_1,ks_p_interface_2,ks_p_interface_3,ks_p_interface_4,ks_p_interface_5,ks_p_back_1,ks_p_back_2,ks_p_back_3,ks_p_back_4,ks_p_back_5';
+	$strSelect = 'wo_no,test_type,tl_ls_1,tl_ls_2,tl_ls_3,tl_ls_4,tl_ls_5,tl_pk_1,tl_pk_2,tl_pk_3,tl_pk_4,tl_pk_5,ay_mk_1,ay_mk_2';
 		$strCond = "";
 		
 		$startPage = 0 ; 
@@ -209,13 +201,13 @@ class Dimensi extends CI_Controller {
 			$strCond .= " AND " . $_POST ['setCondition'];
 		}
 	
-		$total = $this->M_dimensi->getDataCount( $strCond );
+		$total = $this->M_tetal->getDataCount( $strCond );
 	
 		if ($limitPage == 0) {
 			$limitPage = $total;
 		}
 		
-		$list_data = $this->M_dimensi->getData( $strSelect, $strCond, 0, 1 )->result ();
+		$list_data = $this->M_tetal->getData( $strSelect, $strCond, 0, 1 )->result ();
 	
 		$numr = 1;
 		$arr_data = array();

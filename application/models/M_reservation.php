@@ -31,7 +31,7 @@ class M_reservation extends CI_Model
     	$maxIterate = $this->db->query("SELECT 
 									    MAX(RIGHT(wo_no, 4)) AS order_number
 									FROM
-									    db_uji_fisika.tb_reservasi
+									    tb_reservasi
 									WHERE
 									    DATE_FORMAT(check_in_date, '%Y/%m') = '".$year."/".$month."'
 									LIMIT 1");
@@ -100,7 +100,7 @@ class M_reservation extends CI_Model
 						(SELECT 
 						group_concat(inc.alias_test separator '<br />') as test 
 							FROM 
-						db_uji_fisika.tb_reservasi_include rsv
+						tb_reservasi_include rsv
 							JOIN tb_m_type_test inc ON rsv.code_test = inc.code_test where rsv.wo_no = tb.wo_no) as `test`,
 						tb.`img_url`,
 						tb.`status` ";

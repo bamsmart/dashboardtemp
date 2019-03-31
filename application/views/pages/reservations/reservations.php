@@ -1,17 +1,4 @@
 <script type="text/javascript">
-/* <td>0001/02/2019</td>
-<td>02 Mar 2019</td>
-<td>PT Shines Dev Utama</td>
-<td>Kain</td>
-<td><p>Pengujian Pemeriksaaan dan Dimensi Sudut Kusut Kain</p>
-	<p>Pengujian Tetal Benang dan Anyaman Kain</p>
-	<p>Pengujian Nomor Benang</p>
-	<p>Pengujian Kekuatan Tarik</p>
-	<p>Pengujian Kekuatan Sobek (Elmendorf)</p>
-	<p>Pengujian Kain Twist</p></td>
-<td><span class="label label-success">Approved</span></td> */
-
-
  $(document).ready(function(){
 	loadData();
      function loadData(){
@@ -22,9 +9,10 @@
 		 });
 		 
          $.ajax({
-             type  : 'ajax',
+        	 type  : 'ajax',
              url   : 'reservation/listReservationData',
              async : false,
+			 contentType: "application/json; charset=utf-8",
              dataType : 'json',
              success : function(result){
                  var html = '';
@@ -163,7 +151,6 @@
 			<div class="callout callout-success" id="info-success"
 				style="display: none;">
 				<h4>Success</h4>
-
 				<p>Data Reservasi Tersimpan</p>
 			</div>
 

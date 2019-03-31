@@ -1,12 +1,70 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	loadData();
+	
+     function loadData(){
+    	$.busyLoadSetup({ animation: "slide", background: "rgba(255, 152, 0, 0.86)" });
+    	
+    	$("#tbl-tetal").busyLoad("show",{ text: "LOADING ...",
+			   textPosition: "bottom"
+		 });
+		 
+         $.ajax({
+             type: "POST",
+             url   : 'tetal/listBudleData',
+             async : false,
+			 contentType: "application/json; charset=utf-8",
+             dataType : 'json',
+             success : function(result){
+                 var html = '';
+                 var i;
+                 for(i=0; i<result.data.length; i++){
+                 var badge = '<span class="badge bg-'+result.data[i].color+'">'+result.data[i].progress+'</span>'; 
 
+                 var progress = '<div class="progress progress-xs">'+
+					'<div class="progress-bar progress-bar-danger"'+
+						'style="width: '+result.data[i].progress+'%"></div>'+
+				'</div>';
+
+                 var stripped = 'class="odd"'
+            	       if(i % 2 == 0){
+            	    	   stripped = 'class="even"'
+            	       } 
+      	       
+                 html += '<tr '+stripped+' role=row>'+
+          	       '<td class=sorting_1>'+result.data[i].no+'</td>'+
+         	      '<td>'+result.data[i].date+'</td>'+
+         	       '<td>'+result.data[i].type+'</td>'+
+         	       '<td>'+progress+'</td>'+
+         	       '<td>'+badge+'</td>'+
+         	       '<td><div class="btn-group">'+
+         	      '<button type="button" class="btn btn-warning">Action</button>'+
+         	     '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">'+
+         	         '<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> '+
+         	     '</button>'+
+         	     '<ul class="dropdown-menu" role="menu">'+
+         	         '<li><a href="?page=tetal&action&ID='+result.data[i].no+'">Action</a></li>'+
+         	         '<li><a href="?page=tetal&reject">Reject</a></li>'+
+         	     '</ul>'+
+         	 '</div></td>'+
+         	       '</tr>';
+                 }
+                 $('#data-tetal').html(html);
+                 $("#tbl-tetal").busyLoad("hide");
+             }
+
+         });
+     }
+	  });
+</script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
 		Form Pengujian Tetal & Anyaman Kain
 	</h1>
 	<ol class="breadcrumb">
-		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li><a href="#">Forms</a></li>
+		<li><a href="?"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li><a href="?page=tetal">Forms</a></li>
 		<li class="active">Advanced Elements</li>
 	</ol>
 </section>
@@ -34,7 +92,7 @@
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body table-responsive no-padding">
-					<table class="table table-hover">
+					<table class="table table-hover" id="tbl-tetal">
 						<tr>
 							<th>No. WO</th>
 							<th>Tanggal Masuk</th>
@@ -43,97 +101,7 @@
 							<th>Label</th>
 							<th>Action</th>
 						</tr>
-						<tr>
-							<td>183</td>
-							<td>11-7-2014</td>
-							<td>PT Bumi Artha</td>
-							<td><div class="progress progress-xs">
-									<div class="progress-bar progress-bar-yellow"
-										style="width: 70%"></div>
-								</div></td>
-							<td><span class="badge bg-yellow">70%</span></td>
-							<td><div class="btn-group">
-									<button type="button" class="btn btn-warning">Action</button>
-									<button type="button" class="btn btn-warning dropdown-toggle"
-										data-toggle="dropdown">
-										<span class="caret"></span> <span class="sr-only">Toggle
-											Dropdown</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="<?php echo "?page=".$_GET['page']."&action"?>">Action</a></li>
-										<li><a href="<?php echo "?page=".$_GET['page']."&reject"?>">Reject</a></li>
-									</ul>
-								</div></td>
-						</tr>
-						<tr>
-							<td>183</td>
-							<td>11-7-2014</td>
-							<td>PT Bumi Artha</td>
-							<td>
-								<div class="progress progress-xs">
-									<div class="progress-bar progress-bar-danger"
-										style="width: 55%"></div>
-								</div>
-							</td>
-							<td><span class="badge bg-red">55%</span></td>
-							<td>
-								<div class="btn-group">
-									<button type="button" class="btn btn-warning">Action</button>
-									<button type="button" class="btn btn-warning dropdown-toggle"
-										data-toggle="dropdown">
-										<span class="caret"></span> <span class="sr-only">Toggle
-											Dropdown</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="&action">Action</a></li>
-										<li><a href="&reject">Reject</a></li>
-									</ul>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>183</td>
-							<td>11-7-2014</td>
-							<td>PT Bumi Artha</td>
-							<td><div class="progress progress-xs progress-striped active">
-									<div class="progress-bar progress-bar-success"
-										style="width: 90%"></div>
-								</div></td>
-							<td><span class="badge bg-green">90%</span></td>
-							<td><div class="btn-group">
-									<button type="button" class="btn btn-warning">Action</button>
-									<button type="button" class="btn btn-warning dropdown-toggle"
-										data-toggle="dropdown">
-										<span class="caret"></span> <span class="sr-only">Toggle
-											Dropdown</span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="&action">Action</a></li>
-										<li><a href="&reject">Reject</a></li>
-									</ul>
-								</div></td>
-						</tr>
-						<td>183</td>
-						<td>11-7-2014</td>
-						<td>PT Bumi Artha</td>
-						<td><div class="progress progress-xs progress-striped active">
-								<div class="progress-bar progress-bar-success"
-									style="width: 90%"></div>
-							</div></td>
-						<td><span class="badge bg-green">90%</span></td>
-						<td><div class="btn-group">
-								<button type="button" class="btn btn-warning">Action</button>
-								<button type="button" class="btn btn-warning dropdown-toggle"
-									data-toggle="dropdown">
-									<span class="caret"></span> <span class="sr-only">Toggle
-										Dropdown</span>
-								</button>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="&action">Action</a></li>
-										<li><a href="&reject">Reject</a></li>
-								</ul>
-							</div></td>
-						</tr>
+						<tbody id="data-tetal"></tbody>
 					</table>
 				</div>
 				<!-- /.box-body -->

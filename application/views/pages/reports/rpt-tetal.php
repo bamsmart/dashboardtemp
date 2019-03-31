@@ -5,13 +5,13 @@ $(document).ready(function(){
      function loadData(){
     	$.busyLoadSetup({ animation: "slide", background: "rgba(255, 152, 0, 0.86)" });
     	
-    	$("#tbl-dimensi").busyLoad("show",{ text: "LOADING ...",
+    	$("#tbl-tetal").busyLoad("show",{ text: "LOADING ...",
 			   textPosition: "bottom"
 		 });
 		 
          $.ajax({
-             type: "POST",
-             url   : 'dimensi/listBudleData',
+        	 type  : 'POST',
+             url   : 'tetal/listBudleData',
              async : false,
 			 contentType: "application/json; charset=utf-8",
              dataType : 'json',
@@ -37,35 +37,36 @@ $(document).ready(function(){
          	       '<td>'+result.data[i].type+'</td>'+
          	       '<td>'+progress+'</td>'+
          	       '<td>'+badge+'</td>'+
-         	       '<td><div class="btn-group">'+
-         	      '<button type="button" class="btn btn-warning">Action</button>'+
-         	     '<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">'+
-         	         '<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> '+
-         	     '</button>'+
-         	     '<ul class="dropdown-menu" role="menu">'+
-         	         '<li><a href="?page=dimensi&action&ID='+result.data[i].no+'">Action</a></li>'+
-         	         '<li><a href="?page=dimensi&reject">Reject</a></li>'+
-         	     '</ul>'+
-         	 '</div></td>'+
+         	       '<td><a href="reports/printTetal?id='+result.data[i].no+'" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a></td>'+
          	       '</tr>';
                  }
-                 $('#data-dimensi').html(html);
-                 $("#tbl-dimensi").busyLoad("hide");
+                 $('#row-tetal-data').html(html);
+                 $("#tbl-tetal-report").busyLoad("hide");
              }
 
          });
      }
+
+     $('#tbl-tetal-report').DataTable({
+	      'paging'      : true,
+	      'lengthChange': false,
+	      'searching'   : true,
+	      'ordering'    : true,
+	      'info'        : true,
+	      'autoWidth'   : true
+	    });
+	    
 	  });
 </script>
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Form Pengujian Dimensi & Sudut
+		Laporan Pengujian Tetal & Anyaman Kain
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li><a href="#">Forms</a></li>
-		<li class="active">Dimensi</li>
+		<li><a href="#">Reports</a></li>
+		<li class="active">Tetal</li>
 	</ol>
 </section>
 
@@ -74,45 +75,35 @@ $(document).ready(function(){
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="box">
-				<!-- /.box-header -->
-				<div class="box-body ">
-					<table class="display" style="width:100%" id="tbl-dimensi">
-						<tr>
-							<th>No. WO</th>
-							<th>Tanggal Masuk</th>
-							<th>Type</th>
-							<th>Progress</th>
-							<th>Label</th>
-							<th>Action</th>
-						</tr>
-						<tbody id="data-dimensi"></tbody>
-					</table>
-				</div>
-				<!-- /.box-body -->
-				<!-- <div class="box-footer clearfix">
-					<ul class="pagination pagination-sm no-margin pull-right">
-						<li><a href="#">&laquo;</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">&raquo;</a></li>
-					</ul>
-				</div> -->
-			</div>
-			<!-- /.box -->
+                                <div class="box-body table-responsive">
+                                    <table id="tbl-tetal-report" class="table display table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No. WO</th>
+                                                <th>Tanggal</th>
+                                                <th>Contoh</th>
+                                                <th>Progress</th>
+                                                <th>Nilai</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="row-tetal-data"></tbody>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
 		</div>
 	</div>
 </section>
 <!-- /.content -->
-<script type="text/javascript">
+ <script type="text/javascript">
 $(document).ready(function() {
-	$('#tbl-dimensi').DataTable({
-	      'paging'      : false,
+	/* $('#tbl-tetal-report').DataTable({
+	      'paging'      : true,
 	      'lengthChange': false,
-	      'searching'   : false,
+	      'searching'   : true,
 	      'ordering'    : true,
 	      'info'        : true,
 	      'autoWidth'   : true
-	    });
+	    }); */
 	  });
-</script>
+</script>       
