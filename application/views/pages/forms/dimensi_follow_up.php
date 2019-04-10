@@ -1,3 +1,13 @@
+<style type="text/css">
+/* Place the HTML 5 spinner at the default position */
+#form-dimension .inputContainer .form-control {
+	padding-right: 10px;
+}
+/* Adjust feedback icon position */
+#form-dimension .inputContainer .form-control-feedback {
+	right: -15px;
+}
+</style>
 <script type="text/javascript">
 $(document).ready(function(){
 loadDataX();
@@ -65,18 +75,6 @@ loadDataX();
 });
 </script>
 <!-- Content Header (Page header) -->
-<link
-	href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.css"
-	rel="stylesheet">
-<link
-	href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.min.css"
-	rel="stylesheet">
-<script
-	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.js"
-	type="text/javascript"></script>
-<script
-	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.min.js"
-	type="text/javascript"></script>
 <section class="content-header">
 	<h1>
 		Pengujian Pemeriksaaan dan Dimensi Sudut Kusut Kain
@@ -105,9 +103,10 @@ loadDataX();
 						data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
 						data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
 
-						<input type="hidden" name="wo_no" value="<?php if(isset($_GET['ID'])){ echo $_GET['ID'];}else{ echo "";}?>">
+						<input type="hidden" name="wo_no"
+							value="<?php if(isset($_GET['ID'])){ echo $_GET['ID'];}else{ echo "";}?>">
 
-	
+
 						<div class="row">
 							<div class="col-md-12">
 								<label>Lebar (m):</label>
@@ -115,35 +114,46 @@ loadDataX();
 							<div class="col-md-12">
 								<div class="form-group">
 									<div class="row">
-										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_width_1" id="dm_width_1"
-												placeholder="l(1)"
+										<div class="col-xs-2 inputContainer">
+											<input type="text" class="form-control row-1"
+												name="dm_width_1" id="dm_width_1"
+												onkeypress="return isNumberKey(event)" placeholder="l(1)"
+												data-bv-notempty="true"
+												data-bv-notempty-message="The value is required"
+												data-bv-integer="true"
+												data-bv-integer-message="The value is not an integer">
+										</div>
+
+										<div class="col-xs-2 inputContainer">
+											<input type="text" class="form-control row-1"
+												name="dm_width_2" id="dm_width_2"
+												onkeypress="return isNumberKey(event)" placeholder="l(2)"
+												type="number" data-bv-notempty="true"
+												data-bv-notempty-message="The value is required"
+												data-bv-integer="true"
 												data-bv-integer-message="The value is not an integer">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_width_2" id="dm_width_2"
-												placeholder="l(2)" type="number"
-												data-bv-integer-message="The value is not an integer">
+											<input type="text" class="form-control row-1"
+												name="dm_width_3" id="dm_width_3"
+												onkeypress="return isNumberKey(event)" placeholder="l(3)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_width_3" id="dm_width_3"
-												placeholder="l(3)">
+											<input type="text" class="form-control row-1"
+												name="dm_width_4" id="dm_width_4"
+												onkeypress="return isNumberKey(event)" placeholder="l(4)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_width_4" id="dm_width_4"
-												placeholder="l(4)">
-										</div>
-
-										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_width_5" id="dm_width_5"
-												placeholder="l(5)">
+											<input type="text" class="form-control row-1"
+												name="dm_width_5" id="dm_width_5"
+												onkeypress="return isNumberKey(event)" placeholder="l(5)">
 										</div>
 
 										<div class="col-xs-2 pull-right">
-											<input type="text" class="form-control"
+											<input type="text" class="form-control rs-row-1"
 												placeholder="x&#x0304" disabled>
 										</div>
 									</div>
@@ -159,28 +169,28 @@ loadDataX();
 								<div class="form-group">
 									<div class="row">
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_height_1" id="dm_height_1"
-												placeholder="h(1)">
+											<input type="text" class="form-control" name="dm_height_1"
+												id="dm_height_1" placeholder="h(1)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_height_2"  id="dm_height_2"
-												placeholder="h(2)">
+											<input type="text" class="form-control" name="dm_height_2"
+												id="dm_height_2" placeholder="h(2)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_height_3"  id="dm_height_3"
-												placeholder="h(3)">
+											<input type="text" class="form-control" name="dm_height_3"
+												id="dm_height_3" placeholder="h(3)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_height_4"  id="dm_height_4"
-												placeholder="h(4)">
+											<input type="text" class="form-control" name="dm_height_4"
+												id="dm_height_4" placeholder="h(4)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_height_5"  id="dm_height_5"
-												placeholder="h(5)">
+											<input type="text" class="form-control" name="dm_height_5"
+												id="dm_height_5" placeholder="h(5)">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -200,28 +210,28 @@ loadDataX();
 								<div class="form-group">
 									<div class="row">
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_thick_1" id="dm_thick_1"
-												placeholder="t(1)">
+											<input type="text" class="form-control" name="dm_thick_1"
+												id="dm_thick_1" placeholder="t(1)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_thick_2" id="dm_thick_2"
-												placeholder="t(2)">
+											<input type="text" class="form-control" name="dm_thick_2"
+												id="dm_thick_2" placeholder="t(2)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_thick_3" id="dm_thick_3"
-												placeholder="t(3)">
+											<input type="text" class="form-control" name="dm_thick_3"
+												id="dm_thick_3" placeholder="t(3)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_thick_4" id="dm_thick_4"
-												placeholder="t(4)">
+											<input type="text" class="form-control" name="dm_thick_4"
+												id="dm_thick_4" placeholder="t(4)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_thick_5" id="dm_thick_5"
-												placeholder="t(5)">
+											<input type="text" class="form-control" name="dm_thick_5"
+												id="dm_thick_5" placeholder="t(5)">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -241,28 +251,28 @@ loadDataX();
 								<div class="form-group">
 									<div class="row">
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_weight_1" id="dm_weight_1"
-												placeholder="w(1)">
+											<input type="text" class="form-control" name="dm_weight_1"
+												id="dm_weight_1" placeholder="w(1)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_weight_2" id="dm_weight_2"
-												placeholder="w(2)">
+											<input type="text" class="form-control" name="dm_weight_2"
+												id="dm_weight_2" placeholder="w(2)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_weight_3" id="dm_weight_3"
-												placeholder="w(3)">
+											<input type="text" class="form-control" name="dm_weight_3"
+												id="dm_weight_3" placeholder="w(3)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_weight_4" id="dm_weight_4"
-												placeholder="w(4)">
+											<input type="text" class="form-control" name="dm_weight_4"
+												id="dm_weight_4" placeholder="w(4)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="dm_weight_5" id="dm_weight_5"
-												placeholder="w(5)">
+											<input type="text" class="form-control" name="dm_weight_5"
+												id="dm_weight_5" placeholder="w(5)">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -273,18 +283,18 @@ loadDataX();
 								</div>
 							</div>
 						</div>
-						
-						
+
+
 						<div class="callout callout-success" id="info-success-dimensi"
-				style="display:none;">
-				<h4>Success</h4>
-				<p>Data Dimensi Tersimpan</p>
-			</div>
-			
-							<button type="button" class="btn btn-primary pull-right"
-								id="submitdimension">Submit</button>
-						
-						
+							style="display: none;">
+							<h4>Success</h4>
+							<p>Data Dimensi Tersimpan</p>
+						</div>
+
+						<button type="submit" class="btn btn-primary pull-right"
+							id="submitdimension">Submit</button>
+
+
 					</form>
 				</div>
 			</div>
@@ -293,7 +303,8 @@ loadDataX();
 				<div class="panel-heading">Sudut - <?php if(isset($_GET['ID'])){ echo $_GET['ID'];}else{ echo "";}?></div>
 				<div class="panel-body">
 					<form id="form-sudut" method="post">
-						<input type="hidden" name="wo_no" value="<?php if(isset($_GET['ID'])){ echo $_GET['ID'];}else{ echo "";}?>">
+						<input type="hidden" name="wo_no"
+							value="<?php if(isset($_GET['ID'])){ echo $_GET['ID'];}else{ echo "";}?>">
 						<div class="row">
 							<div class="col-md-12">
 								<label>Lusi (Antar Muka):</label>
@@ -303,27 +314,32 @@ loadDataX();
 									<div class="row">
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_l_interface_1" placeholder="l-am-(1)" id="ks_l_interface_1">
+												name="ks_l_interface_1" placeholder="l-am-(1)"
+												id="ks_l_interface_1">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_l_interface_2" placeholder="l-am-(2)" id="ks_l_interface_2">
+												name="ks_l_interface_2" placeholder="l-am-(2)"
+												id="ks_l_interface_2">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_l_interface_3" placeholder="l-am-(3)" id="ks_l_interface_3">
+												name="ks_l_interface_3" placeholder="l-am-(3)"
+												id="ks_l_interface_3">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_l_interface_4" placeholder="l-am-(4)" id="ks_l_interface_4">
+												name="ks_l_interface_4" placeholder="l-am-(4)"
+												id="ks_l_interface_4">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_l_interface_5" placeholder="l-am-(5)"  id="ks_l_interface_5">
+												name="ks_l_interface_5" placeholder="l-am-(5)"
+												id="ks_l_interface_5">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -343,28 +359,28 @@ loadDataX();
 								<div class="form-group">
 									<div class="row">
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_l_back_1" id="ks_l_back_1"
-												placeholder="l-ab-(1)">
+											<input type="text" class="form-control" name="ks_l_back_1"
+												id="ks_l_back_1" placeholder="l-ab-(1)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_l_back_2" id="ks_l_back_2"
-												placeholder="l-ab-(2)">
+											<input type="text" class="form-control" name="ks_l_back_2"
+												id="ks_l_back_2" placeholder="l-ab-(2)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_l_back_3" id="ks_l_back_3"
-												placeholder="l-ab-(3)">
+											<input type="text" class="form-control" name="ks_l_back_3"
+												id="ks_l_back_3" placeholder="l-ab-(3)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_l_back_4" id="ks_l_back_4"
-												placeholder="l-ab-(4)">
+											<input type="text" class="form-control" name="ks_l_back_4"
+												id="ks_l_back_4" placeholder="l-ab-(4)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_l_back_5" id="ks_l_back_5"
-												placeholder="l-ab-(5)">
+											<input type="text" class="form-control" name="ks_l_back_5"
+												id="ks_l_back_5" placeholder="l-ab-(5)">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -385,27 +401,32 @@ loadDataX();
 									<div class="row">
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_p_interface_1" placeholder="p-am-(1)" id="ks_p_interface_1">
+												name="ks_p_interface_1" placeholder="p-am-(1)"
+												id="ks_p_interface_1">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_p_interface_2" placeholder="p-am-(2)"  id="ks_p_interface_2">
+												name="ks_p_interface_2" placeholder="p-am-(2)"
+												id="ks_p_interface_2">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_p_interface_3" placeholder="p-am-(3)"  id="ks_p_interface_3">
+												name="ks_p_interface_3" placeholder="p-am-(3)"
+												id="ks_p_interface_3">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_p_interface_4" placeholder="p-am-(4)"  id="ks_p_interface_4">
+												name="ks_p_interface_4" placeholder="p-am-(4)"
+												id="ks_p_interface_4">
 										</div>
 
 										<div class="col-xs-2">
 											<input type="text" class="form-control"
-												name="ks_p_interface_5" placeholder="p-am-(5)" id="ks_p_interface_5">
+												name="ks_p_interface_5" placeholder="p-am-(5)"
+												id="ks_p_interface_5">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -425,28 +446,28 @@ loadDataX();
 								<div class="form-group">
 									<div class="row">
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_p_back_1" id="ks_p_back_1"
-												placeholder="p-ab-(1)">
+											<input type="text" class="form-control" name="ks_p_back_1"
+												id="ks_p_back_1" placeholder="p-ab-(1)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_p_back_2" id="ks_p_back_2"
-												placeholder="p-ab-(2)">
+											<input type="text" class="form-control" name="ks_p_back_2"
+												id="ks_p_back_2" placeholder="p-ab-(2)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_p_back_3" id="ks_p_back_3"
-												placeholder="p-ab-(3)">
+											<input type="text" class="form-control" name="ks_p_back_3"
+												id="ks_p_back_3" placeholder="p-ab-(3)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_p_back_4" id="ks_p_back_4"
-												placeholder="p-ab-(4)">
+											<input type="text" class="form-control" name="ks_p_back_4"
+												id="ks_p_back_4" placeholder="p-ab-(4)">
 										</div>
 
 										<div class="col-xs-2">
-											<input type="text" class="form-control" name="ks_p_back_5" id="ks_p_back_5"
-												placeholder="p-ab-(5)">
+											<input type="text" class="form-control" name="ks_p_back_5"
+												id="ks_p_back_5" placeholder="p-ab-(5)">
 										</div>
 
 										<div class="col-xs-2 pull-right">
@@ -457,155 +478,78 @@ loadDataX();
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="callout callout-success" id="info-success-sudut"
-				style="display:none;">
-				<h4>Success</h4>
-				<p>Data Sudut Tersimpan</p>
-			</div>
-			
-			
-							<button type="button" class="btn btn-primary pull-right"
-								id="submitsudut">Submit</button>
-					
+							style="display: none;">
+							<h4>Success</h4>
+							<p>Data Sudut Tersimpan</p>
+						</div>
+
+
+						<button type="submit" class="btn btn-primary pull-right"
+							id="submitsudut">Submit</button>
+
 					</form>
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
 </section>
 <!-- /.content -->
 <script type="text/javascript">
     $(document).ready(function() {
 		//Validator
-        $('#form-dimension').bootstrapValidator({
-            message: 'This value is not valid',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
+		$('#form-dimension').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+        	dm_width_1: {
+                validators: {
+                	notEmpty: {
+                        message: 'The value is required'
+                    },
+                    integer: {
+                        message: 'The value is not an integer'
+                    },
+                    regexp: {
+                        regexp: /^[0-9_\.]+$/,
+                        message: 'The field can only consist number'
+                    }
+                }
             },
-            fields: {
-                username: {
-                    message: 'The username is not valid',
-                    validators: {
-                        notEmpty: {
-                            message: 'The username is required and can\'t be empty'
-                        },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: 'The username must be more than 6 and less than 30 characters long'
-                        },
-                        regexp: {
-                            regexp: /^[a-zA-Z0-9_\.]+$/,
-                            message: 'The username can only consist of alphabetical, number, dot and underscore'
-                        }
-                    }
-                },
-                country: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The country is required and can\'t be empty'
-                        }
-                    }
-                },
-                acceptTerms: {
-                    validators: {
-                        notEmpty: {
-                            message: 'You have to accept the terms and policies'
-                        }
-                    }
-                },
-                email: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The email address is required and can\'t be empty'
-                        },
-                        emailAddress: {
-                            message: 'The input is not a valid email address'
-                        }
-                    }
-                },
-                website: {
-                    validators: {
-                        uri: {
-                            allowLocal: true,
-                            message: 'The input is not a valid URL'
-                        }
-                    }
-                },
-                phoneNumberUS: {
-                    validators: {
-                        phone: {
-                            message: 'The input is not a valid US phone number'
-                        }
-                    }
-                },
-                phoneNumberUK: {
-                	validators: {
-                		phone: {
-                			message: 'The input is not a valid UK phone number',
-                			country: 'GB'
-                		}
-                	}
-                },
-                color: {
-                    validators: {
-                        hexColor: {
-                            message: 'The input is not a valid hex color'
-                        }
-                    }
-                },
-                zipCode: {
-                    validators: {
-                        zipCode: {
-                            country: 'US',
-                            message: 'The input is not a valid US zip code'
-                        }
-                    }
-                },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The password is required and can\'t be empty'
-                        },
-                        identical: {
-                            field: 'confirmPassword',
-                            message: 'The password and its confirm are not the same'
-                        }
-                    }
-                },
-                confirmPassword: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The confirm password is required and can\'t be empty'
-                        },
-                        identical: {
-                            field: 'password',
-                            message: 'The password and its confirm are not the same'
-                        }
-                    }
-                },
-                ages: {
-                    validators: {
-                        lessThan: {
-                            value: 100,
-                            inclusive: true,
-                            message: 'The ages has to be less than 100'
-                        },
-                        greaterThan: {
-                            value: 10,
-                            inclusive: false,
-                            message: 'The ages has to be greater than or equals to 10'
-                        }
+            dm_width_2: {
+                validators: {
+                	notEmpty: {
+                        message: 'The value is required'
+                    },
+                    integer: {
+                        message: 'The value is not an integer'
+                    },
+                    regexp: {
+                        regexp: /^[0-9_\.]+$/,
+                        message: 'The field can only consist number'
                     }
                 }
             }
-        }); 
+        }
+    }).on('status.field.bv', function(e, data) {
+        if (data.bv.getSubmitButton()) {
+            data.bv.disableSubmitButtons(false);
+        }
+    });
 
-
-        $('#submitdimension').on('click', function() {
+	$(document).on("change", ".row-1", function() {
+		    var sum = 0;
+		    $(".row-1").each(function(){
+		        sum += +$(this).val();
+		    });
+		    $(".rs-row-1").val(sum);
+	});
+	
+  $('#submitdimension').on('click', function() {
             $.busyLoadSetup({
                 animation: "slide",
                 background: "rgba(255, 152, 0, 0.86)"
@@ -666,4 +610,15 @@ loadDataX();
             });
         });
     });
+    
+    function isNumberKey(evt)
+    {
+    	var charCode = (evt.which) ? evt.which : evt.keyCode;
+    	if (charCode != 46 && charCode > 31 
+    	&& ((charCode < 48) || (charCode > 57))){
+    	return false;
+    	}else{
+    	return true;
+    	}
+    }
 </script>

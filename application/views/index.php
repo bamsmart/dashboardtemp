@@ -127,12 +127,18 @@ header ( "Access-Control-Allow-Origin: *" );
 	src="themes/default/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 	
 <!-- Bootstrap Validator -->
-<!-- <link href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.css" rel="stylesheet">
-<link href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.min.css" rel="stylesheet">
+<link
+	href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.css"
+	rel="stylesheet">
+<link
+	href="themes/default/plugins/bootstrap-validator/css/bootstrapValidator.min.css"
+	rel="stylesheet">
 <script
-	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.js" type="text/javascript"></script>
+	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.js"
+	type="text/javascript"></script>
 <script
-	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.min.js" type="text/javascript"></script>	 -->
+	src="themes/default/plugins/bootstrap-validator/js/bootstrapValidator.min.js"
+	type="text/javascript"></script>
 
 <!-- AdminLTE App -->
 <script src="themes/default/dist/js/adminlte.min.js"></script>
